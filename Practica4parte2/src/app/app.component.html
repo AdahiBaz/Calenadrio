@@ -1,0 +1,37 @@
+<div>
+  <h3 [ngStyle]="{'color': colores[0], 'display': fiestasCss[3], 'margin-left' : fiestasCss[4], 'padding' : fiestasCss[1], 'border-radius' : fiestasCss[2], 'border' : fiestasCss[0]}">Fiesta Regional</h3>
+  <h3 [ngStyle]="{'color': colores[1], 'display': fiestasCss[3], 'margin-left' : fiestasCss[4], 'padding' : fiestasCss[1], 'border-radius' : fiestasCss[2], 'border' : fiestasCss[0]}">Fiesta Local</h3>
+  <h3 [ngStyle]="{'color': colores[2], 'display': fiestasCss[3], 'margin-left' : fiestasCss[4], 'padding' : fiestasCss[1], 'border-radius' : fiestasCss[2], 'border' : fiestasCss[0]}">Fiesta Center</h3>
+  <h3 [ngStyle]="{'color': colores[3], 'display': fiestasCss[3], 'margin-left' : fiestasCss[4], 'padding' : fiestasCss[1], 'border-radius' : fiestasCss[2], 'border' : fiestasCss[0]}">Fiesta Nacional</h3>
+</div>
+
+<div class = "row">
+  <div *ngFor="let mes of meses; let i=index;">
+    
+    <h1>{{mes.nombre}}</h1>
+
+    <div class="border">
+      <ol class="cal">
+
+        <li *ngFor="let day of semana" class="day-name">{{day}}</li>
+
+      </ol>
+
+      <ol class="cal">
+
+        <div *ngFor="let dia of mes.inicio; let i=index;">
+            <li>&nbsp;</li>
+        </div>
+
+        <div *ngFor="let dia of mes.fDias; let i=index;">
+          <li *ngIf=" 'l' == dia.idFiesta" [ngClass]="['colorLocal','dias']">{{i}}</li>
+          <li *ngIf=" 'r' == dia.idFiesta" [ngClass]="['colorRegional','dias']">{{i}}</li>
+          <li *ngIf=" 'c' == dia.idFiesta" [ngClass]="['colorCenter','dias']">{{i}}</li>
+          <li *ngIf=" 'n' == dia.idFiesta" [ngClass]="['colorNacional','dias']">{{i}}</li>
+          <li *ngIf=" '' == dia.idFiesta && dia.dia != 0" [ngClass]="['dias']">{{i}}</li>   
+        </div>
+
+      </ol>
+    </div>
+  </div>
+</div>
