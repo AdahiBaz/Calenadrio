@@ -18,7 +18,7 @@ interface mes {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['../styles.css']
 })
 
 export class AppComponent {
@@ -34,6 +34,7 @@ export class AppComponent {
   meses : Array <mes> = [
 
     {nombre : "Septiembre", nDias : 30 + 1, inicio : Array.from({length: 2}, (v, k) => k + 1), fDias : []},
+    {nombre : "Octubre", nDias : 31 + 1, inicio : Array.from({length: 4}, (v, k) => k + 1), fDias : []},
     {nombre : "Octubre", nDias : 31 + 1, inicio : Array.from({length: 4}, (v, k) => k + 1), fDias : []},
 
   ]
